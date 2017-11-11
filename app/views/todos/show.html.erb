@@ -1,0 +1,12 @@
+<div class="col-md-offset-4 col-md-4">
+  <h1>待辦事項明細</h1>
+
+  <%= @todo.title %><br/>
+
+  <%= @todo.date %><br/>
+
+  <%=  simple_format(@todo.note) %><br/>
+
+  <%= link_to 'Back to list', todos_path%>
+
+</div>

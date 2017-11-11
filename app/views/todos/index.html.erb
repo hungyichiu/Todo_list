@@ -1,0 +1,30 @@
+<h1>To do list</h1>
+<%= link_to '新增待辦事項', new_todo_path %>
+<br>
+<table class="table table-striped taqble-condensed">
+  <thead>
+    <tr>
+    <td> 已完成 </td>
+      <td> 待辦事項 </td>
+      <td> D-day </td>
+      <td> Process </td>
+    </tr>  
+  </thead>
+
+  <tbody>
+    <% @todos.each do |todo| %>
+    <tr>
+      <td><%= check_box_tag :done, true, todo.done, data: { url: done_todo_path(todo), 
+                method: :post, 
+                remote: true }%></td>
+      <td><%= todo.title%></td>
+      <td><%= todo.date %></td>      
+      <td>
+        <%= link_to 'Show', todo_path(todo)%>
+        <%= link_to 'Edit', edit_todo_path(todo) %>
+        <%= link_to 'Destroy', todo_path(todo), method: :delete, data:{ confirm: "Are you sure?" } %></td>
+    </tr>
+    
+    <% end %>
+  </tbody>
+</table>

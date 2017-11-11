@@ -1,0 +1,27 @@
+<% if @todo.errors.present? %>
+  <ul>
+    <% @todo.errors.each do |error, message|%>
+      <li><%= "#{error.capitalize} #{message}" %></li>
+      <% end %>
+  </ul>
+<% end %>
+
+<div class="form container">
+  <%= form_for(todo)  do |f|%>
+    <div class="form-group">
+    <%= f.label :title , "待辦事項"%>
+    <%= f.text_field :title,  class: "form-control"%><br/>
+    </div>
+    <div class="form-group">
+    <%= f.label :date, "D-day"%>
+    <%= f.text_field :date,  class: "form-control"%><br/>
+    </div>
+    <div class="form-group">
+    <%= f.label :note, "備註"%>
+    <%= f.text_area :note, class: "form-control"%><br/>
+    </div>
+
+    <%= f.submit %><br/>
+
+  <% end %>
+</div>
