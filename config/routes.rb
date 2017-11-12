@@ -7,4 +7,6 @@ Rails.application.routes.draw do
       post :done
     end
   end
+  
+  root "todos#index"
 end
